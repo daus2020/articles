@@ -2,9 +2,54 @@
 
 <%= render @article %>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
+<div class="d-flex" id="show_actions">
+<%# <div class="d-inline-flex"> %>
+  <%= link_to edit_article_path(@article), class: "btn btn-outline-primary btn-sm mx-auto", title: "Editar" do %>
+    <i class="bi bi-pencil"></i>
+  <% end %>
 
-  <%= button_to "Destroy this article", @article, method: :delete %>
+  <%= button_to @article, method: :delete, title: "Eliminar", class:"btn btn-outline-primary btn-sm mx-auto" do %>
+    <i class="bi bi-trash"></i>
+  <% end %>
+ 
+  <%= link_to articles_path, class: "btn btn-outline-primary btn-sm mx-auto", title: "Volver a Artículos" do %>
+    <i class="bi bi-arrow-counterclockwise"></i>
+  <% end %>
 </div>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+
+<h2>Add a comment:</h2>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
