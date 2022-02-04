@@ -2,31 +2,61 @@
 
 <%= render @article %>
 
-<h3 class="text-center">Comentarios  <span class="text-muted fs-5">( <%= @article.comments.size %> )</></span></h3>
+<!-- BUTTON trigger modal to add new comment-->
+<div class="my-4 shadow d-inline-flex">
+  <button type="button" class="btn btn-outline-primary mx-auto" data-bs-toggle="modal" data-bs-target="#commentModal">
+    Ingrese su comentario
+  </button>
+</div>
+
+<h3 class="text-center">Comentarios <span class="text-muted fs-5">( <%= @article.comments.size %> )</></span></h3>
 <br>
-<table class="table table-primary table-hover border border-primary">
-  <thead>
-    <tr class="table-info">
-      <th scope="col-3" class="text-left">
-        <strong>Hecho por</strong>
-      </th>
-      <th scope="col-8" class="text-center">
-        <strong>Comentario</strong>
-      </th>
-      <th scope="col-1" class="text-center">
-        <strong>Eliminar</strong>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @article.comments %>
-  </tbody>
-</table>
 
-<%# BUTTON add new article %>
+<% if @article.comments.size == 0 %>
+  <h5 class="text-center"><%= "Sea el primero en comentar..." %></h5> 
+<% else %>
+  <table class="table table-primary table-hover border border-primary">
+    <thead>
+      <tr class="table-info">
+        <th scope="col-4" class="text-left">
+          <strong>Hecho por</strong>
+        </th>
+        <th scope="col-7" class="text-center">
+          <strong>Comentario</strong>
+        </th>
+        <th scope="col-1" class="text-end">
+          <strong>Eliminar</strong>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @article.comments %>
+    </tbody>
+  </table>
+<% end %>
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%# <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> %>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'comments/form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+
+
+<%# <h3 class="my-3 text-center">Ingrese su comentario:</h3> %>
+<%# <%= render 'comments/form' %>
