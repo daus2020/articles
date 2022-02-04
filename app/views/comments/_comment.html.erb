@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <%= comment.commenter %>
+  </td>
+  <td class="text-center">
+    <%= comment.body %>
+  </td>
+  <td class="text-center">
+    <%= link_to [comment.article, comment], title: "Eliminar comentario", class: "btn btn-outline-primary ",
+          data: { turbo_method: :delete, turbo_confirm: "¿Está seguro?"
+                } do %>
+                  <i class="bi bi-trash"></i>
+                <% end %>
+  </td>
+</tr>
