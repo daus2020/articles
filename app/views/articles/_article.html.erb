@@ -1,8 +1,8 @@
 <div id="<%= dom_id article %>">
 
 <br>
-<div class="card mx-auto  border-dark shadow" id="article-card">
-  <div class="card-header bg-secondary text-white">
+<div class="card mx-auto  border-ligth" id="article-card">
+  <div class="card-header bg-primary text-white">
     <p>
       <strong>Título:</strong>
       <%= article.title %>
@@ -13,9 +13,9 @@
       <%= article.body %>
     </p>
   </div>
-  <div class="card-footer d-flex bg-secondary">
+  <div class="card-footer d-flex mb-1">
 
-    <%= link_to edit_article_path(@article), class: "btn btn-outline-light btn-sm mx-auto", title: "Editar" do %>
+    <%= link_to edit_article_path(@article), class: "btn btn-outline-primary btn-sm mx-auto", title: "Editar" do %>
       <i class="bi bi-pencil"></i>
     <% end %>
 
@@ -25,11 +25,11 @@
                 <%# <i class="bi bi-trash"></i> %>
               <%# <% end %> 
     
-    <%= button_to @article, method: :delete, title: "Eliminar", class:"btn btn-outline-light btn-sm mx-auto" do %>
+    <%= button_to @article, method: :delete, title: "Eliminar", class:"btn btn-outline-primary btn-sm mx-auto" do %>
       <i class="bi bi-trash"></i>
     <% end %>
   
-    <%= link_to articles_path, class: "btn btn-outline-light btn-sm mx-auto", title: "Volver a Artículos" do %>
+    <%= link_to articles_path, class: "btn btn-outline-primary btn-sm mx-auto", title: "Volver a Artículos" do %>
       <i class="bi bi-arrow-counterclockwise"></i>
     <% end %>
 

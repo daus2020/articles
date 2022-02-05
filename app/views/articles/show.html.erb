@@ -3,13 +3,13 @@
 <%= render @article %>
 
 <!-- BUTTON trigger modal to add new comment-->
-<div class="my-4 shadow d-inline-flex">
-  <button type="button" class="btn btn-outline-primary mx-auto" data-bs-toggle="modal" data-bs-target="#commentModal">
+<div class="my-4 d-inline-flex mx-auto">
+  <button type="button" class="btn btn-outline-light bg-success" id="comment-btn" data-bs-toggle="modal" data-bs-target="#commentModal">
     Ingrese su comentario
   </button>
 </div>
 
-<h3 class="text-center">Comentarios <span class="text-muted fs-5">( <%= @article.comments.size %> )</></span></h3>
+<h3 class="text-center text-light">Comentarios <span class="text-light fs-5">( <%= @article.comments.size %> )</></span></h3>
 <br>
 
 <% if @article.comments.size == 0 %>
