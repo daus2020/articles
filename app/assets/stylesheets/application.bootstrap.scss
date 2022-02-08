@@ -5,11 +5,18 @@ body {
   // background-image: url(fondo-bckg.png);
   // background-repeat: no-repeat;
   // background-size: cover;
+  position: relative;
   background: #6190E8;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
   height: 100%;
+  min-width: 476px;
+  // background-size: 100% 100%;
+  // height: max-content;
+  // height: auto;
 }
 
 #index_actions_col {
@@ -20,16 +27,141 @@ body {
   width: 28rem;
 }
 
-div.card {
-  // box-shadow: 0px 6px 6px 2px rgba(255, 255, 255, 0.9), 0 6px 8px 2px rgba(255, 255, 255, 0.9);
-  // box-shadow: 0 6px 10px 0 rgba(255, 255, 255, 0.9), 0 8px 24px 0 rgba(255, 255, 255, 0.9);
-  // box-shadow: rgba(255, 255, 255, 0.767) 0px 22px 70px 4px;
+div.card, table {
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #ffffff 0 2px 14px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 // #show_actions {
 //   max-width: 220px;
 // }
+.card-footer {
+  // background-color: rgb(200,180, 142, 0.6);
+  background-color: rgb(201,163, 103, 0.6);
+  // background-color: rgb(226,211, 179, 0.6);
+}
+
+#table {
+  border-radius: 8px;
+  border: 3px solid rgba(219, 14, 14);
+  overflow: hidden;
+  // box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #ffffff 0 2px 14px;
+}
 
 #comment-btn {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #ffffff 0 2px 14px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #fff 0 2px 14px;
+  background-color: #9a9c93;
+  &:hover {
+    color: #1FFF00;
+    text-shadow:
+      0 0 7px #1FFF00,
+      0 0 10px #1FFF00,
+      0 0 21px #1FFF00,
+      0 0 42px #b3ff00,
+      0 0 82px #b3ff00,
+      0 0 92px #b3ff00,
+      0 0 102px #b3ff00,
+      0 0 151px #b3ff00;
+    // color: #d7ec14;
+    background-color: #9a9c93;
+    border-color: #1FFF00;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #5ddf12 0 2px 14px;
+  }
+}
+
+.th-comments {
+  background: #ff00bf;
+}
+
+.hover-btn {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #fff 0 2px 14px;
+  background-color: #9a9c93;
+  width: 210px;
+  height: 40px;
+  // width: fit-content;
+  &:hover {
+    background-color: #9a9c93;
+    border-color: rgb(0, 109, 252);
+    // border-color: #009FFF;
+    color: blue;
+    text-shadow:
+      0 0 7px #00c3ff,
+      0 0 10px #00c3ff,
+      0 0 21px #00c3ff,
+      0 0 42px rgb(0, 217, 255),
+      0 0 82px rgb(0, 217, 255),
+      0 0 92px rgb(0, 217, 255),
+      0 0 102px rgb(0, 217, 255),
+      0 0 151px rgb(0, 217, 255);
+    // border-color: #4B4AF7;
+    // border-color: #001aff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, rgb(0, 217, 255) 0 2px 14px;
+  }
+}
+
+.search-btn {
+  width: 46px;
+}
+
+.del-btn:hover {
+  background-color: rgb(255, 73, 73);
+  border-color: red;
+}
+
+.back-icon{
+  position: relative;
+  display:inline-block;
+  width:208px;
+  bottom: 8px;
+  right: 12px;
+  padding-top: 7px;
+  padding-bottom: 12px;
+}
+
+.back-icon:hover {
+  // color: #ff0055;
+  color: rgb(52, 242,247);
+  border: #00c3ff;
+  // color: #001aff;
+}
+
+.link-btn {
+  display:inline-block;
+  width:100%;
+  height:100%;
+  border: 4px solid rgb(201, 25, 25);
+  // padding-right:  -6px;
+}
+
+// .back-icon {
+//   display:inline-block;
+//   box-sizing: border-box;
+//   width:100%;
+//   height:100%;
+//   border: 1px solid rgb(201, 25, 25);
+//   margin-right: 5px;
+//   // padding:  4px;
+// }
+
+
+.bg-primary, .bg-secondary {
+  --bs-bg-opacity: 0.6;
+} 
+
+$theme-colors: (
+  "success": #d900ce,
+);
+
+#footer {
+  background-image: url(image.png);
+  // position: static;
+  // position: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 110px;
+  // height: 6rem; 
+  // background-size: cover;
+  // height: 100%;
 }

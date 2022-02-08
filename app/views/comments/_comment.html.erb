@@ -6,7 +6,7 @@
     <%= comment.body %>
   </td>
   <td class="text-end">
-    <%= link_to [comment.article, comment], title: "Eliminar comentario", class: "btn btn-outline-primary ",
+    <%= link_to [comment.article, comment], title: "Eliminar comentario", class: "btn btn-outline-primary btn-sm del-btn",
           data: { turbo_method: :delete, turbo_confirm: "¿Está seguro?"
                 } do %>
                   <i class="bi bi-trash"></i>

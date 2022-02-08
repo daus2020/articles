@@ -2,11 +2,30 @@
 
 <%= render @article %>
 
-<!-- BUTTON trigger modal to add new comment-->
-<div class="my-4 d-inline-flex mx-auto">
-  <button type="button" class="btn btn-outline-light bg-success" id="comment-btn" data-bs-toggle="modal" data-bs-target="#commentModal">
-    Ingrese su comentario
+<div class="d-flex justify-content-around my-3">
+<%# <div class="my-4 d-flex mx-auto"> %>
+  <!-- BUTTON trigger modal to add new comment-->
+  <button class="btn btn-outline-light" id="comment-btn" data-bs-toggle="modal" data-bs-target="#commentModal">
+    <i class="bi bi-chat-right">&emsp;Ingrese su comentario</i>
   </button>
+
+  <!-- BUTTON back to Articles -->
+  <button class="btn btn-outline-light hover-btn" >
+    <%= link_to articles_path, class:"text-decoration-none text-light" do %>
+      <i class="bi bi-arrow-counterclockwise back-icon">&emsp;Volver a Artículos</i>
+    <% end %>
+  </button>
+  <%# <button class="btn btn-outline-light back-btn" >
+    <%= link_to articles_path, id:"link-btn", class:"text-decoration-none text-light" do %>
+      <%# <i class="bi bi-arrow-counterclockwise back-icon">&emsp;Volver a Artículos</i> %>
+    <%# <% end %>
+  <%# </button> %>
+  
+  <%# <div id="back-btn">
+    <%= link_to articles_path, class: "btn btn-outline-primary btn-sm mx-auto", title: "Volver a Artículos" do %>
+      <%# <i class="bi bi-arrow-counterclockwise">&emsp;Volver a Artículos</i> %>
+    <%# <% end %>
+  <%# </div> %>
 </div>
 
 <h3 class="text-center text-light">Comentarios <span class="text-light fs-5">( <%= @article.comments.size %> )</></span></h3>
@@ -15,8 +34,8 @@
 <% if @article.comments.size == 0 %>
   <h5 class="text-center"><%= "Sea el primero en comentar..." %></h5> 
 <% else %>
-  <table class="table table-primary table-hover border border-primary">
-    <thead>
+  <table class="table table-success table-hover border border-light" id="table">
+    <thead class="th-comments">
       <tr class="table-info">
         <th scope="col-4" class="text-left">
           <strong>Hecho por</strong>
