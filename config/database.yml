@@ -23,8 +23,10 @@ default: &default
 
 development:
   <<: *default
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+  username: daniel
+  password: root
+  # username: <%= Rails.application.credentials.database[:username] %>
+  # password: <%= Rails.application.credentials.database[:password] %>
   host: localhost
   database: articles_ransacked_development
 
@@ -60,8 +62,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: <%= Rails.application.credentials.database[:username] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+  username: daniel
+  password: root
+  # username: <%= Rails.application.credentials.database[:username] %>
+  # password: <%= Rails.application.credentials.database[:password] %>
   host: localhost
   database: articles_ransacked_test
 
