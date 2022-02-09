@@ -34,24 +34,26 @@
 <% if @article.comments.size == 0 %>
   <h5 class="text-center"><%= "Sea el primero en comentar..." %></h5> 
 <% else %>
-  <table class="table table-success table-hover border border-light" id="table">
-    <thead class="th-comments">
-      <tr class="table-info">
-        <th scope="col-4" class="text-left">
-          <strong>Hecho por</strong>
-        </th>
-        <th scope="col-7" class="text-center">
-          <strong>Comentario</strong>
-        </th>
-        <th scope="col-1" class="text-end">
-          <strong>Eliminar</strong>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @article.comments %>
-    </tbody>
-  </table>
+  <div class="scroll-tbl-comments">
+    <table class="table table-success table-hover border border-light" id="table">
+      <thead class="th-comments">
+        <tr class="table-info">
+          <th scope="col-4" class="text-left">
+            <strong>Hecho por</strong>
+          </th>
+          <th scope="col-7" class="text-center">
+            <strong>Comentario</strong>
+          </th>
+          <th scope="col-1" class="text-end">
+            <strong>Eliminar</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @article.comments %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
 
 

@@ -18,46 +18,48 @@
 
 <%= render 'articles/search_form' %>
 <%# TABLE all articles %>
-<table class="table table-primary table-hover border border-primary">
-  <thead>
-    <tr class="table-info">
-      <th>
-        <%= sort_link(@q, :title, 'Title', default_order: :desc) %>
-      </th>
-      <th>
-         <%= sort_link(@q, :body, 'Contenido', default_order: :desc) %>
-      </th>
-     
-      <%# <th scope="col">Título</th> %>
-      <%# <th scope="col">Contenido</th> %>
-      <th scope="col" class="text-center" id="index_actions_col">
-        Acciones
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td class="text-center">
-          <%= link_to article, class: "btn btn-outline-primary m-1  btn-sm", title: "Mostrar" do %>
-            <i class="bi bi-eye"></i>
-          <% end %>
-
-          <%= link_to edit_article_path(article), class: "btn btn-outline-primary m-1  btn-sm", title: "Editar" do %>
-            <i class="bi bi-pencil"></i>
-          <% end %>
-
-          <%= link_to article, method: :delete, data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de eliminarlo?"}, class: "btn btn-outline-primary m-1 del-btn btn-sm", title: 'Eliminar' do %>
-            <i class="bi bi-trash"></i>
-          <% end %>
-        </td>
+<div class="scroll-tbl-articles">
+  <table class="table table-primary table-hover border border-primary mb-3 pb-2" id="articles-tbl">
+    <thead>
+      <tr class="table-info">
+        <th>
+          <%= sort_link(@q, :title, 'Title', default_order: :desc) %>
+        </th>
+        <th>
+          <%= sort_link(@q, :body, 'Contenido', default_order: :desc) %>
+        </th>
+      
+        <%# <th scope="col">Título</th> %>
+        <%# <th scope="col">Contenido</th> %>
+        <th scope="col" class="text-center" id="index_actions_col">
+          Acciones
+        </th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
 
-</table>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.body %></td>
+          <td class="text-center">
+            <%= link_to article, class: "btn btn-outline-primary m-1  btn-sm", title: "Mostrar" do %>
+              <i class="bi bi-eye"></i>
+            <% end %>
+
+            <%= link_to edit_article_path(article), class: "btn btn-outline-primary m-1  btn-sm", title: "Editar" do %>
+              <i class="bi bi-pencil"></i>
+            <% end %>
+
+            <%= link_to article, method: :delete, data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de eliminarlo?"}, class: "btn btn-outline-primary m-1 del-btn btn-sm", title: 'Eliminar' do %>
+              <i class="bi bi-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
 
 <br>
