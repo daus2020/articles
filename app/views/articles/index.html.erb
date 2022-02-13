@@ -10,11 +10,15 @@
   <%# </button> %>
 <%# </div> %>
 
-<button class="btn btn-outline-primary hover-btn text-center mx-auto my-3">
+<%# <button class="btn btn-outline-primary hover-btn text-center mx-auto my-3">
   <%= link_to new_article_path, class: "text-decoration-none text-light" do %>
-    <i class="bi bi-blockquote-left">&emsp;Nuevo Artículo</i>
-  <% end %>
-</button>
+    <%# <i class="bi bi-blockquote-left">&emsp;Nuevo Artículo</i> %>
+  <%# <% end %>
+<%# </button> %>
+
+    <%= link_to new_article_path, class:"text-decoration-none btn btn-outline-light text-light hover-btn mx-auto" do %>
+      <i class="bi bi-blockquote-left">&emsp;Nuevo Artículo</i>
+    <% end %>
 
 <%= render 'articles/search_form' %>
 <%# TABLE all articles %>
@@ -43,17 +47,52 @@
           <td><%= article.title %></td>
           <td><%= article.body %></td>
           <td class="text-center">
-            <%= link_to article, class: "btn btn-outline-primary m-1  btn-sm", title: "Mostrar" do %>
-              <i class="bi bi-eye"></i>
+          <%# <div class="green-bd"> %>
+          <div class="between">
+            <%= link_to article do %>
+              <button class="btn btn-outline-primary btn-sm show-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mostrar">
+                <i class="bi bi-eye"></i>
+              </button>
             <% end %>
 
-            <%= link_to edit_article_path(article), class: "btn btn-outline-primary m-1  btn-sm", title: "Editar" do %>
-              <i class="bi bi-pencil"></i>
+            <%= link_to edit_article_path(article) do %>
+              <button class="btn btn-outline-primary btn-sm edit-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar">
+                <i class="bi bi-pencil"></i>
+              </button>
             <% end %>
 
+            <%= link_to article, method: :delete, data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de eliminarlo?"} do %>
+              <button class="btn btn-outline-primary btn-sm del-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eliminar">
+                <i class="bi bi-trash"></i>
+              </button>
+            <% end %>
+          
+          </div>
+
+
+          <%# </div> %>
+
+            <%# <button type="button" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mostrar">
+              <%= link_to article, class: "border-red btn-outline-primary btn-sm p-1" do %>
+                <%# <i class="bi bi-eye"></i> %>
+              <%# <% end %>   
+            <%# </button> %>
+
+            <%# <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+              Tooltip on bottom
+            </button> %>
+
+            <%# <%= link_to article, class: "btn btn-outline-primary m-1 btn-sm",  title: "Mostrar" do %>
+              <%# <i class="bi bi-eye"></i> %>
+            <%# <% end %>
+
+            <%# <%= link_to edit_article_path(article), class: "btn btn-outline-primary m-1  btn-sm", title: "Editar" do %>
+              <%# <i class="bi bi-pencil"></i> %>
+            <%# <% end %>
+<%# 
             <%= link_to article, method: :delete, data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de eliminarlo?"}, class: "btn btn-outline-primary m-1 del-btn btn-sm", title: 'Eliminar' do %>
-              <i class="bi bi-trash"></i>
-            <% end %>
+              <%# <i class="bi bi-trash"></i> %>
+            <%# <% end %>
           </td>
         </tr>
       <% end %>

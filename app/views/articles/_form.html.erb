@@ -1,7 +1,7 @@
 <%= form_with(model: article) do |form| %>
   <% if article.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> imposible crear artículo por:</h2>
+      <h2><%= pluralize(article.errors.count, "error") %> que impide(n) enviar artículo:</h2>
 
       <ul>
         <% article.errors.each do |error| %>
@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+
+  <h3 class="card-title text-center">Artículo</h3>
 
   <div>
     <%= form.label :title,  "Título", style: "display: block" %>
@@ -21,7 +23,13 @@
     <%= form.text_area :body, class:"mb-2" %>
   </div>
 
-  <div>
-    <%= form.submit "Enviar edición", class: "btn btn-outline-primary hover-btn mb-3" %>
-  </div>
+  <%= form.submit "Enviar", class: "btn btn-outline-light text-light hover-btn mb-3 mt-2 ms-4" do %>
+    <i class="bi bi-cloud-arrow-up">&emsp;Enviar</i>
+  <% end %>
+  <%# <%= form.submit "Enviar", class: "btn btn-outline-light text-light hover-btn mb-3" %>
+
+  <%# <%= link_to articles_path, class:"text-light btn btn-outline-light hover-btn ms-4" do %>
+    <%# <i class="bi bi-arrow-counterclockwise">&emsp;Volver a Artículos</i>
+  <% end %>
+
 <% end %>

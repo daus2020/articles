@@ -1,9 +1,10 @@
-<h1>Nuevo artículo</h1>
+<div class="card mx-auto" style="width: 20rem">
+  <div class="card-body">
 
-<%= render "form", article: @article %>
-
-<br>
-
-<div>
-  <%= link_to "Back to articles", articles_path %>
+    <%= render "form", article: @article %>
+    
+    <%= link_to articles_path, class:"text-light btn btn-outline-light hover-btn ms-4" do %>
+      <i class="bi bi-arrow-counterclockwise">&emsp;Volver a Artículos</i>
+    <% end %>
+  </div>
 </div>
